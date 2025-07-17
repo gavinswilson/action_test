@@ -51,3 +51,6 @@ jobs:
 
       - name: Run a script
         run: "Get-ChildItem env: | Sort-Object Name | Format-Table -AutoSize"
+
+      - name: Run a multi-line script
+        uses: gavinswilson/reponame@main #from another repo
