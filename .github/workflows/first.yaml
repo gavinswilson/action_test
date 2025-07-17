@@ -1,4 +1,4 @@
-name: First Workflow
+name: Test Workflow
 
 on:
   push:
@@ -53,4 +53,4 @@ jobs:
         run: "Get-ChildItem env: | Sort-Object Name | Format-Table -AutoSize"
 
       - name: Run a multi-line script
-        uses: gavinswilson/reponame@main #from another repo
+        uses: gavinswilson/update_readme_timestamp@main #from another repo
