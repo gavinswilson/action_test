@@ -3,8 +3,8 @@ name: First Workflow
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
   workflow_dispatch:
     
 jobs:
@@ -19,7 +19,7 @@ jobs:
         run: echo "This is the first workflow running on the main branch."
 
       - name: print variables
-        run: env | sort
+        run: date
   job2:
     name: Second Job
     runs-on: windows-latest
@@ -28,4 +28,26 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run a script
-        run: "Get-ChildItem env:"
+        run: "Get-Date -DisplayHint Date"
+  job3:
+    name: third Job
+    runs-on: macos-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run a script
+        run: date
+  job4:
+    name: Fourth Job
+    needs: 
+        - job1
+        - job2
+        - job3
+    runs-on: windows-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run a script
+        run: "Get-ChildItem env: | Sort-Object Name | Format-Table -AutoSize"
