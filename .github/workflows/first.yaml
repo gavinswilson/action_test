@@ -49,8 +49,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run a script
-        run: "Get-ChildItem env: | Sort-Object Name | Format-Table -AutoSize"
+      # - name: Run a script
+      #   run: "Get-ChildItem env: | Sort-Object Name | Format-Table -AutoSize"
 
       - name: Run a multi-line script
         uses: gavinswilson/update_readme_timestamp@main #from another repo
