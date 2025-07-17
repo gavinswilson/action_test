@@ -34,3 +34,6 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+      - name: check python code
+        uses: cclauss/Find-Python-syntax-errors-action@v0.2.0
+          
